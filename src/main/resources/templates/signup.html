@@ -40,9 +40,9 @@
         <div class="password_container">
             <img src="/assets/images/icon_password.svg" alt="유저 이미지" />
             <div class="password_input">
-                <label> 부서 </label>
+                <label> 소속 </label>
                 <input type="text" id="department" name="department"
-                       placeholder="부서를 입력해주세요"><br>
+                       placeholder="소속을 입력해주세요"><br>
             </div>
         </div>
 
@@ -60,7 +60,7 @@
                     };
                     $.ajax({
                         type: "POST",
-                        url: "/api/signIn",
+                        url: "/api/signUp",
                         contentType: "application/json",
                         data: JSON.stringify(requestData),
                         success: (response) =>{

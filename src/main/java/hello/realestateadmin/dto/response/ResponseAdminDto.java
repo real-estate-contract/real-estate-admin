@@ -1,6 +1,6 @@
 package hello.realestateadmin.dto.response;
 
-import hello.realestateadmin.domain.entity.Admin;
+import hello.realestateadmin.domain.entity.Manager;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -17,7 +17,7 @@ public class ResponseAdminDto implements UserDetails {
     private final String password;
     private final String role;
 
-    public static ResponseAdminDto of(Admin admin) {
+    public static ResponseAdminDto of(Manager admin) {
         return new ResponseAdminDto(admin.getName(), admin.getPassword(), admin.getRole());
     }
 

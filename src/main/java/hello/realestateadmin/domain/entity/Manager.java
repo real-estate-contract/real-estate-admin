@@ -14,13 +14,13 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name="admin")
+@Table(name="manager")
 @NoArgsConstructor
 @Getter
 @EntityListeners(AuditingEntityListener.class) // 추가
-public class Admin {
+public class Manager {
     @Id
-    @Column(name = "admin_id")
+    @Column(name = "manager_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
@@ -55,7 +55,7 @@ public class Admin {
     private LocalDateTime updatedAt;
 
     @Builder
-    public Admin(String name, String password, Role role, String department, Boolean isApproved){
+    public Manager(String name, String password, Role role, String department, Boolean isApproved){
         this.name = name;
         this.password = password;
         this.role = role.getValue();
