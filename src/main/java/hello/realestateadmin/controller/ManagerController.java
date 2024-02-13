@@ -1,9 +1,12 @@
 package hello.realestateadmin.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-public class MainController {
+public class ManagerController {
+
 }
