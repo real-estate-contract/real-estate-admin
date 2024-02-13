@@ -1,10 +1,12 @@
 package hello.realestateadmin.domain.entity;
 
 import hello.realestateadmin.domain.constant.SpeculativeArea;
-import jakarta.persistence.*;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "basic")
