@@ -21,14 +21,14 @@ public class AuthService implements UserDetailsService{
     //관리자에게 회원가입 요청 보내기
     public Response<String> signUp(RequestSignupDto requestSignupDto) throws Exception {
         try {
-            Manager admin = Manager.builder()
+            Manager manager = Manager.builder()
                     .name(requestSignupDto.getName())
                     .password(passwordEncoder.encode(requestSignupDto.getPassword()))
                     .role(Role.UNAPPROVED)
                     .isApproved(false)
                     .department(requestSignupDto.getDepartment())
                     .build();
-            adminRepository.save(admin);
+            adminRepository.save(manager);
         }
         catch (Exception e){
             throw new Exception("관리자 요청을 불러올 수 없습니다.");
@@ -39,7 +39,7 @@ public class AuthService implements UserDetailsService{
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         System.out.println(username);
-        Manager admin = adminRepository.findByName(username).orElseThrow();
-        return ResponseAdminDto.of(admin);
+        Manager manager = adminRepository.findByName(username).orElseThrow();
+        return ResponseAdminDto.of(manager);
     }
 }

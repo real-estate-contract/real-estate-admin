@@ -17,17 +17,11 @@
       <section class="left_container">
         <p class="login_title">부동맞춤</p>
         <p class="left_subtitle">관리자 페이지</p>
-        <img
-          class="login_image"
-          src="/assets/images/login_bg.png"
-          alt="로그인 이미지"
-        />
       </section>
       <section>
         <h1 class="right_login_title">로그인</h1>
         <form th:action="@{/login}" method="POST">
           <div class="nickname_container">
-            <img src="/assets/images/icon_user.svg" alt="유저 이미지" />
             <div class="nickname_input">
               <label> Id </label>
               <input
@@ -39,7 +33,6 @@
           </div>
 
           <div class="password_container">
-            <img src="/assets/images/icon_password.svg" alt="유저 이미지" />
             <div class="password_input">
               <label> Password </label>
               <input
