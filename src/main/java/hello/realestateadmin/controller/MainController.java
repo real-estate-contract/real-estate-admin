@@ -13,11 +13,11 @@ public class MainController {
         if (authentication.getAuthorities().stream().anyMatch(
                 a -> a.getAuthority().equals("ROLE_ADMIN")
         )) {
-            return "forward:/admin/index";
+            return "redirect:/admin/index";
         } else if (authentication.getAuthorities().stream().anyMatch(
                 a -> a.getAuthority().equals("ROLE_MANAGER")
         )) {
-            return "forward:/manager/index";
+            return "redirect:/manager/index";
         }
         return "main";  // 접근 거부 페이지로
     }

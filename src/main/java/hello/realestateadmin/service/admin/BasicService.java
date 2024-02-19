@@ -17,15 +17,14 @@ public class BasicService {
     private final BasicRepository basicRepository;
 
     @Transactional
-    public void saveBasicInfo(Long basicId, RequestBasicDto requestBasicDto) throws Exception {
+    public void createBasicInfo(RequestBasicDto requestBasicDto) throws Exception {
         // basicId에 해당하는 Basic이 존재하는지 확인
-        Basic basic = basicRepository.findById(basicId).orElseThrow(() -> new ApplicationException(ErrorCode.BASIC_NOT_FOUND, String.format("%s is not founded", basicId)));
+        // basic = basicRepository.findById(basicId).orElseThrow(() -> new ApplicationException(ErrorCode.BASIC_NOT_FOUND, String.format("%s is not founded", basicId)));
 
         // Basic 엔티티에 필요한 데이터를 매핑
 
-
         // Basic 저장
-        basicRepository.save(basic);
+        basicRepository.save(Basic.of(requestBasicDto));
     }
 
 

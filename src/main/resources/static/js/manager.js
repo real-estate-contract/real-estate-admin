@@ -4,7 +4,6 @@ $(document).ready(function() {
 
         // 각 입력 필드의 값을 가져와서 formData 객체에 할당
         var formData = {
-            basicId: $('#basicId').val(),
             ownershipLand: $('#ownershipLand').val(),
             noOwnershipLand: $('#noOwnershipLand').val(),
             ownershipBuilding: $('#ownershipBuilding').val(),

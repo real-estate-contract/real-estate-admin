@@ -42,7 +42,7 @@ public class ResponseBasicDto {
     private final Integer framTax;
     private final Integer localTax;
 
-    public static ResponseBasicDto of(Basic basic) {
+    public static ResponseBasicDto from(Basic basic) {
         return new ResponseBasicDto( basic.getBasicId(),
                 basic.getOwnershipLand(),
                 basic.getNoOwnershipLand(),

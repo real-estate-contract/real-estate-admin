@@ -28,8 +28,20 @@ public class SecurityConfig {
                 .and()
                     .formLogin() // 로그인에 대한 설정
                     .loginPage("/login") // 로그인 페이지 링크
-                    .defaultSuccessUrl("/main", true) // 로그인 성공시 연결되는 주소
                     .failureUrl("/login?error=true")
+                    .successHandler((request, response, authentication) -> {
+                        if (authentication.getAuthorities().stream().anyMatch(
+                                a -> a.getAuthority().equals("ROLE_ADMIN")
+                        )) {
+                            response.sendRedirect("/admin/index");
+                        } else if (authentication.getAuthorities().stream().anyMatch(
+                                a -> a.getAuthority().equals("ROLE_MANAGER")
+                        )) {
+                            response.sendRedirect("/manager/index");
+                        } else {
+                            response.sendRedirect("/main");
+                        }
+                    })
                 .and()
                 .logout() // 로그아웃 관련 설정
                     .logoutSuccessUrl("/login") // 로그아웃 성공시 연결되는 주소

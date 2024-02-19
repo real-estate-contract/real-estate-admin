@@ -26,71 +26,74 @@
     <div class="sidebar">
         <div class="sidebar_header">
             <p>부동맞춤</p>
-            <span class="color_blue">manager</span>
+            <p>manager</p>
+            <span class="color_blue">admin</span>
             <button id="logout" th:onclick="|location.href='@{/logout}'|">
                 로그아웃
             </button>
         </div>
     </div>
     <div class="main_content">
-        <form id="basicForm" th:object="${basic}" th:action="@{/save}">
+        <body>
+        <form id="basicForm" th:action="@{/api/manager/basic}" method="post">
             <!-- 권리관계 -->
-            <label>Sole Ownership Land</label>
-            <input type="text" th:field="*{ownershipLand}" />
+            <h2>권리관계</h2>
+            <label for="ownershipLand">소유권 토지:</label>
+            <input type="text" id="ownershipLand" name="ownershipLand" required>
 
-            <label>No Sole Ownership Land</label>
-            <input type="text" th:field="*{noOwnershipLand}" />
+            <label for="noOwnershipLand">비소유권 토지:</label>
+            <input type="text" id="noOwnershipLand" name="noOwnershipLand" required>
 
-            <label>Sole Ownership Building</label>
-            <input type="text" th:field="*{ownershipBuilding}" />
+            <label for="ownershipBuilding">소유권 건축물:</label>
+            <input type="text" id="ownershipBuilding" name="ownershipBuilding" required>
 
-            <label>No Sole Ownership Building</label>
-            <input type="text" th:field="*{noOwnershipBuilding}" />
+            <label for="noOwnershipBuilding">비소유권 건축물:</label>
+            <input type="text" id="noOwnershipBuilding" name="noOwnershipBuilding" required>
 
-            <!-- (이하 생략) -->
+            <!-- 민간 임대 등록 여부 등 추가 항목도 동일한 방식으로 추가 -->
 
             <!-- 토지이용계획 -->
-            <label>Use Area</label>
-            <input type="text" th:field="*{useArea}" />
+            <h2>토지이용계획</h2>
+            <label for="useArea">용도지역:</label>
+            <input type="text" id="useArea" name="useArea" required>
 
-            <label>Use District</label>
-            <input type="text" th:field="*{useDistrict}" />
+            <label for="useDistrict">용도지구:</label>
+            <input type="text" id="useDistrict" name="useDistrict" required>
 
-            <label>Use Section</label>
-            <input type="text" th:field="*{useSection}" />
+            <label for="useSection">용도구역:</label>
+            <input type="text" id="useSection" name="useSection" required>
 
-            <label>Plan Facility</label>
-            <input type="text" th:field="*{planFacility}" />
+            <label for="planFacility">도시,군 계획시설:</label>
+            <input type="text" id="planFacility" name="planFacility" required>
 
-            <label>Permitted Area</label>
-            <input type="checkbox" th:field="*{permittedArea}" />
+            <label for="permittedArea">허가, 신고 구역 여부:</label>
+            <input type="checkbox" id="permittedArea" name="permittedArea" >
 
-            <label>Speculative Area</label>
-            <select th:field="*{speculativeArea}">
-                <option th:each="area : ${T(com.example.SpeculativeArea).values()}"
-                        th:value="${area}" th:text="${area}">Option</option>
-            </select>
+            <!-- Enum 타입인 speculativeArea에 대한 처리를 추가 -->
 
-            <label>Plan</label>
-            <input type="text" th:field="*{plan}" />
+            <label for="plan">지구단위계획구역, 도시 군 관리계획:</label>
+            <input type="text" id="plan" name="plan" required>
 
-            <label>Etc</label>
-            <input type="text" th:field="*{etc}" />
+            <label for="etc">그 밖의 이용제한 및 거래 규제사항:</label>
+            <input type="text" id="etc" name="etc" required>
 
             <!-- 취득 시 부담한 조세의 종류 및 세율 -->
-            <label>Acquisition Tax</label>
-            <input type="number" th:field="*{acquisitionTax}" />
+            <h2>취득 시 부담한 조세의 종류 및 세율</h2>
+            <label for="acquisitionTax">취득세:</label>
+            <input type="number" id="acquisitionTax" name="acquisitionTax" required>
 
-            <label>Fram Tax</label>
-            <input type="number" th:field="*{framTax}" />
+            <label for="framTax">농어촌특별세:</label>
+            <input type="number" id="framTax" name="framTax" required>
 
-            <label>Local Tax</label>
-            <input type="number" th:field="*{localTax}" />
+            <label for="localTax">지방교육세:</label>
+            <input type="number" id="localTax" name="localTax" required>
 
-            <button type="submit">Save</button>
+            <button type="submit">Submit</button>
         </form>
+        </body>
     </div>
 </div>
 <script src="/js/manager.js"></script>
+<script src="/js/basicForm.js"></script>
 </body>
 </html>

@@ -3,9 +3,11 @@ package hello.realestateadmin.domain.entity;
 import com.sun.istack.NotNull;
 import hello.realestateadmin.domain.constant.SpeculativeArea;
 
+import hello.realestateadmin.dto.request.RequestBasicDto;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -29,20 +31,20 @@ public class Basic {
     // 소유권에 관한 사항
     @Column(name = "ownership_land")
     @NotNull
-    private String ownershipLand;
+    private String ownershipLand; //소유권 토지
 
     @Column(name = "no_ownership_land")
     @NotNull
-    private String noOwnershipLand;
+    private String noOwnershipLand; //비소유권 토지
 
     // 소유권 외의 권리 사항
     @Column(name = "ownership_building")
     @NotNull
-    private String ownershipBuilding;
+    private String ownershipBuilding; //소유권 건축물
 
     @Column(name = "no_ownership_building")
     @NotNull
-    private String noOwnershipBuilding;
+    private String noOwnershipBuilding; //비소유권 건축물
 
     // 민간 임대 등록 여부
     //등록
@@ -110,6 +112,49 @@ public class Basic {
     @LastModifiedDate
     private LocalDateTime updatedAt;
 
+
+    @Builder
+    public Basic(Long basicId, String ownershipLand, String noOwnershipLand, String ownershipBuilding, String noOwnershipBuilding,
+                 String useArea, String useDistrict, String useSection, String planFacility, boolean permittedArea,
+                 SpeculativeArea speculativeArea, String plan, String etc, Integer acquisitionTax, Integer framTax, Integer localTax) {
+        this.basicId = basicId;
+        this.ownershipLand = ownershipLand;
+        this.noOwnershipLand = noOwnershipLand;
+        this.ownershipBuilding = ownershipBuilding;
+        this.noOwnershipBuilding = noOwnershipBuilding;
+        this.useArea = useArea;
+        this.useDistrict = useDistrict;
+        this.useSection = useSection;
+        this.planFacility = planFacility;
+        this.permittedArea = permittedArea;
+        this.speculativeArea = speculativeArea;
+        this.plan = plan;
+        this.etc = etc;
+        this.acquisitionTax = acquisitionTax;
+        this.framTax = framTax;
+        this.localTax = localTax;
+    }
+
+    // 다음과 같이 of 메서드 추가
+    public static Basic of(RequestBasicDto requestBasicDto) {
+        return Basic.builder()
+                .ownershipLand(requestBasicDto.getOwnershipLand())
+                .noOwnershipLand(requestBasicDto.getNoOwnershipLand())
+                .ownershipBuilding(requestBasicDto.getOwnershipBuilding())
+                .noOwnershipBuilding(requestBasicDto.getNoOwnershipBuilding())
+                .useArea(requestBasicDto.getUseArea())
+                .useDistrict(requestBasicDto.getUseDistrict())
+                .useSection(requestBasicDto.getUseSection())
+                .planFacility(requestBasicDto.getPlanFacility())
+                .permittedArea(requestBasicDto.isPermittedArea())
+                .speculativeArea(requestBasicDto.getSpeculativeArea())
+                .plan(requestBasicDto.getPlan())
+                .etc(requestBasicDto.getEtc())
+                .acquisitionTax(requestBasicDto.getAcquisitionTax())
+                .framTax(requestBasicDto.getFramTax())
+                .localTax(requestBasicDto.getLocalTax())
+                .build();
+    }
 
 
 }
