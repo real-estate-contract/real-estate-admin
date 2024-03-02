@@ -1,4 +1,4 @@
-package hello.realestateadmin.service.admin;
+package hello.realestateadmin.service;
 
 import hello.realestateadmin.domain.constant.Role;
 import hello.realestateadmin.domain.entity.Manager;

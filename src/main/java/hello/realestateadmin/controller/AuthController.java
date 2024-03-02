@@ -1,7 +1,7 @@
 package hello.realestateadmin.controller;
 
 import hello.realestateadmin.dto.request.RequestSignupDto;
-import hello.realestateadmin.service.admin.AdminService;
+import hello.realestateadmin.service.AdminService;
 import hello.realestateadmin.service.auth.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

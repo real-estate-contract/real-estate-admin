@@ -2,7 +2,7 @@ package hello.realestateadmin.controller;
 
 import hello.realestateadmin.dto.response.Response;
 import hello.realestateadmin.dto.response.ResponseApplyManagerRoleDto;
-import hello.realestateadmin.service.admin.AdminService;
+import hello.realestateadmin.service.AdminService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

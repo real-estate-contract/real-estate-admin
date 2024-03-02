@@ -1,4 +1,4 @@
-package hello.realestateadmin.service.admin;
+package hello.realestateadmin.service;
 
 import hello.realestateadmin.respository.ManagerRepository;
 import lombok.RequiredArgsConstructor;

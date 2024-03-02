@@ -1,6 +1,6 @@
 package hello.realestateadmin.controller;
 
-import hello.realestateadmin.service.admin.ManagerService;
+import hello.realestateadmin.service.ManagerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RestController;
 

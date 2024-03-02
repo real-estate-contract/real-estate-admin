@@ -1,4 +1,4 @@
-package hello.realestateadmin.service.admin;
+package hello.realestateadmin.service;
 
 import hello.realestateadmin.domain.entity.Basic;
 import hello.realestateadmin.dto.request.RequestBasicDto;
